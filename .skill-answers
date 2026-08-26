@@ -1,0 +1,9 @@
+project-name = ARS_UserviewTest
+project-description = New UI for UserView
+platform = platform/poc-iris-react
+workflow-skills = workflow/architecture,workflow/deep-linking,workflow/figma-read-from-mcp,workflow/git,workflow/motion,workflow/testing,workflow/vercel-publish
+git-remote = https://github.com/JoelDFreeman/UserviewProductTest
+figma-url = https://www.figma.com/design/pM8TUtMbcdF3JrEZaVXrE6/ARS_WebUI2_User-View-Approvals?m=dev
+figma-build-mode = update-existing
+shell-product = active-roles
+shell-page = approval
