@@ -15,6 +15,10 @@ import styles from './AppShell.module.css';
 
 /** Map global-nav item value → route hash. Items without a mapping are no-op. */
 const GLOBAL_NAV_ROUTES: Record<string, string | undefined> = {
+  'user-view-home': '#/user-view/home',
+  'user-view-profile': '#/user-view/profile',
+  'user-view-approvals': '#/user-view/approvals',
+  'user-view-access': '#/user-view/my-access',
   directory: '#/users',
   insights: '#/insights',
   services: '#/services',
@@ -110,6 +114,8 @@ export interface AppShellProps {
   activeGlobalItem?: string;
   /** Render the directory/sub-nav rail. */
   showSecondarySidebar?: boolean;
+  /** Optional page-specific class for the main content surface. */
+  mainClassName?: string;
   className?: string;
 }
 
@@ -124,6 +130,7 @@ export function AppShell({
   children,
   activeGlobalItem = 'directory',
   showSecondarySidebar = true,
+  mainClassName,
   className,
 }: AppShellProps) {
   // Pinned (expanded) state survives navigations + reloads via localStorage.
@@ -419,7 +426,7 @@ export function AppShell({
             />
           )}
 
-          <main className={styles.main}>{children}</main>
+          <main className={cx(styles.main, mainClassName)}>{children}</main>
 
           <AiPanel open={aiOpen} onClose={() => setAiOpen(false)} />
         </div>

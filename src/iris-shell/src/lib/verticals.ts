@@ -80,27 +80,15 @@ export const ACTIVE_ROLES_VERTICAL: Vertical = {
   label: 'Active Roles',
   subLibraryUrl: 'https://www.figma.com/design/IlG4nne9VhqpONzqc0tfKg/ARS---Master?m=auto',
   productIcon: 'active-roles',
-  defaultRoute: '#/insights',
+  defaultRoute: '#/user-view/home',
   aiTitle: 'Active Roles AI',
   mainNav: [
-    { value: 'directory', label: 'Directory management', icon: 'TreeView' },
-    { value: 'insights', label: 'Insights', icon: 'PresentationChart' },
-    { value: 'approval', label: 'Approval', icon: 'SealCheck', disabled: true },
-    { value: 'customization', label: 'Customization', icon: 'Wrench', disabled: true },
+    { value: 'user-view-home', label: 'Homepage', icon: 'House' },
+    { value: 'user-view-profile', label: 'User Profile', icon: 'User' },
+    { value: 'user-view-approvals', label: 'Approvals', icon: 'Check' },
+    { value: 'user-view-access', label: 'My Access', icon: 'Key' },
   ],
   otherNav: COMMON_OTHER_NAV,
-  secondarySidebar: {
-    directoryLabel: 'All directories',
-    navItems: [
-      { value: 'users', label: 'Users', icon: 'Users' },
-      { value: 'groups', label: 'Groups', icon: 'UsersThree' },
-      { value: 'devices', label: 'Devices', icon: 'Devices' },
-      { value: 'agents', label: 'Agents', icon: 'Robot' },
-      { value: 'applications', label: 'Applications', icon: 'Browsers' },
-      { value: 'access-templates', label: 'Access templates', icon: 'UserCircleCheck' },
-      { value: 'management-units', label: 'Management units', icon: 'FolderSimpleStar' },
-    ],
-  },
 };
 
 export const SERVICES_VERTICAL: Vertical = {
@@ -161,6 +149,13 @@ const IDENTITY_ROUTES: ReadonlySet<RouteName> = new Set<RouteName>(['identityHom
 
 /** Route names that belong to the Safeguard vertical. */
 const SAFEGUARD_ROUTES: ReadonlySet<RouteName> = new Set<RouteName>(['safeguardHome']);
+
+const USER_VIEW_ROUTES: ReadonlySet<RouteName> = new Set<RouteName>([
+  'userViewHome',
+  'userViewProfile',
+  'userViewApprovals',
+  'userViewAccess',
+]);
 
 export function verticalForRoute(route: Route): Vertical {
   if (IDENTITY_ROUTES.has(route.name)) return IDENTITY_MANAGER_VERTICAL;

@@ -1,0 +1,96 @@
+.page {
+  width: 100%;
+}
+
+.contentPanel {
+  gap: var(--oi-spacing-l);
+}
+
+.titleBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--oi-spacing-m);
+}
+
+.titleBar h1,
+.titleBar p {
+  margin: 0;
+}
+
+.titleBar h1 {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-02-font-size);
+  font-weight: var(--oi-text-heading-02-font-weight);
+  line-height: var(--oi-text-heading-02-line-height);
+}
+
+.titleBar p {
+  margin-top: var(--oi-spacing-xs);
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oi-spacing-m);
+}
+
+.metricCard {
+  gap: var(--oi-spacing-s);
+  min-width: 0;
+  padding: var(--oi-spacing-m);
+  border-radius: var(--oi-border-radius-default);
+}
+
+.metricHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oi-spacing-s);
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.metricCard strong {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-02-font-size);
+  font-weight: var(--oi-text-heading-02-font-weight);
+  line-height: var(--oi-text-heading-02-line-height);
+}
+
+.metricCard small {
+  color: var(--oi-content-color-tertiary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.dot_warning { background: var(--oi-content-color-warning); }
+.dot_success { background: var(--oi-content-color-success); }
+.dot_error { background: var(--oi-content-color-error); }
+
+.tableSection {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .metricRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

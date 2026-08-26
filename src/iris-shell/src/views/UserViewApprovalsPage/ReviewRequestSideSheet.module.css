@@ -1,0 +1,144 @@
+.sheet {
+  width: 512px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-xs);
+}
+
+.label {
+  color: var(--oi-content-color-tertiary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.value {
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.value strong,
+.personCard strong {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.largeValue {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-font-size);
+  line-height: var(--oi-text-body-line-height);
+}
+
+.personCard {
+  display: flex;
+  align-items: center;
+  gap: var(--oi-spacing-s);
+  padding: var(--oi-spacing-s);
+  background: var(--oi-background-color-secondary);
+  border-radius: var(--oi-border-radius-default);
+}
+
+.personCard > div {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.personCard span {
+  color: var(--oi-content-color-tertiary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.ownerRole {
+  flex: 0 0 auto;
+}
+
+.footerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--oi-spacing-s);
+  width: 100%;
+}
+
+.successBanner,
+.errorBanner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-xs);
+  padding: var(--oi-spacing-s);
+  border-radius: var(--oi-border-radius-default);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.successBanner {
+  color: var(--oi-content-color-success);
+  background: var(--oi-background-color-success);
+}
+
+.errorBanner {
+  color: var(--oi-content-color-error);
+  background: var(--oi-background-color-error);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-s);
+  padding: var(--oi-spacing-s);
+  background: var(--oi-background-color-secondary);
+  border: var(--oi-border-width-default) var(--oi-border-style-solid) var(--oi-border-color-muted);
+  border-radius: var(--oi-border-radius-default);
+}
+
+.modalField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-s);
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--oi-spacing-s);
+  width: 100%;
+}
+
+.feedback {
+  margin: calc(var(--oi-spacing-s) * -1) 0 0;
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.denyPrompt {
+  margin: 0;
+  color: var(--oi-content-color-error);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+@media (max-width: 560px) {
+  .sheet {
+    width: 100%;
+  }
+}

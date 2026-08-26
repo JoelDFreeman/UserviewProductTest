@@ -17,6 +17,8 @@ export interface WipPageProps {
   title: string;
   /** Glyph shown in the leading ResourceIcon tile. */
   icon: string;
+  activeGlobalItem?: string;
+  breadcrumbLabel?: string;
 }
 
 /**
@@ -24,9 +26,13 @@ export interface WipPageProps {
  * yet. Reuses the UsersPage header treatment (icon + title + page-actions
  * menu) and shows a "WIP" marker in the content area.
  */
-export function WipPage({ title, icon }: WipPageProps) {
+export function WipPage({ title, icon, activeGlobalItem, breadcrumbLabel = 'UserView' }: WipPageProps) {
   return (
-    <AppShell breadcrumb={[{ label: 'Directory Management' }, { label: title }]}>
+    <AppShell
+      breadcrumb={[{ label: breadcrumbLabel }, { label: title }]}
+      activeGlobalItem={activeGlobalItem}
+      showSecondarySidebar={false}
+    >
       <ContentHeader
         icon={icon}
         title={title}

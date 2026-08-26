@@ -11,6 +11,10 @@ import { useEffect, useState } from 'react';
  */
 
 export type Route =
+  | { name: 'userViewHome'; params: Record<string, never> }
+  | { name: 'userViewProfile'; params: Record<string, never> }
+  | { name: 'userViewApprovals'; params: Record<string, never> }
+  | { name: 'userViewAccess'; params: Record<string, never> }
   | { name: 'userDetail'; params: { id: string } }
   | { name: 'usersList'; params: Record<string, never> }
   | { name: 'treeRoot'; params: Record<string, never> }
@@ -37,25 +41,13 @@ interface RouteDef {
 }
 
 const ROUTES: RouteDef[] = [
-  { name: 'userDetail', pattern: /^#\/users\/([^/]+)$/, keys: ['id'] },
-  { name: 'usersList', pattern: /^#\/users$/, keys: [] },
-  { name: 'treeDetail', pattern: /^#\/tree\/([^/]+)\/([^/]+)$/, keys: ['nodeId', 'objectId'] },
-  { name: 'treeList', pattern: /^#\/tree\/([^/]+)$/, keys: ['nodeId'] },
-  { name: 'treeRoot', pattern: /^#\/tree$/, keys: [] },
-  { name: 'favoritesList', pattern: /^#\/favorites$/, keys: [] },
-  { name: 'groups', pattern: /^#\/groups$/, keys: [] },
-  { name: 'devices', pattern: /^#\/devices$/, keys: [] },
-  { name: 'agents', pattern: /^#\/agents$/, keys: [] },
-  { name: 'applications', pattern: /^#\/applications$/, keys: [] },
-  { name: 'accessTemplates', pattern: /^#\/access-templates$/, keys: [] },
-  { name: 'managementUnits', pattern: /^#\/management-units$/, keys: [] },
-  { name: 'insights', pattern: /^#\/insights$/, keys: [] },
-  { name: 'services', pattern: /^#\/services$/, keys: [] },
-  { name: 'identityHome', pattern: /^#\/identity$/, keys: [] },
-  { name: 'safeguardHome', pattern: /^#\/safeguard$/, keys: [] },
+  { name: 'userViewHome', pattern: /^#\/user-view\/home$/, keys: [] },
+  { name: 'userViewProfile', pattern: /^#\/user-view\/profile$/, keys: [] },
+  { name: 'userViewApprovals', pattern: /^#\/user-view\/approvals$/, keys: [] },
+  { name: 'userViewAccess', pattern: /^#\/user-view\/my-access$/, keys: [] },
 ];
 
-const DEFAULT = '#/insights';
+const DEFAULT = '#/user-view/home';
 
 function parseHash(hash: string | null | undefined): Route {
   const h = hash || DEFAULT;
@@ -69,7 +61,7 @@ function parseHash(hash: string | null | undefined): Route {
       return { name: r.name, params } as Route;
     }
   }
-  return { name: 'usersList', params: {} };
+  return { name: 'userViewHome', params: {} };
 }
 
 /**
@@ -89,7 +81,8 @@ export function navigate(path: string): void {
  */
 function normalizeAddressBar(): void {
   if (typeof window === 'undefined') return;
-  if (!window.location.hash) {
+  const isKnownRoute = ROUTES.some((route) => route.pattern.test(window.location.hash));
+  if (!isKnownRoute) {
     window.history.replaceState(null, '', DEFAULT);
   }
 }
@@ -97,7 +90,7 @@ function normalizeAddressBar(): void {
 export function useRoute(): Route {
   const [route, setRoute] = useState<Route>(() =>
     typeof window === 'undefined'
-      ? { name: 'usersList', params: {} }
+      ? { name: 'userViewHome', params: {} }
       : parseHash(window.location.hash),
   );
 

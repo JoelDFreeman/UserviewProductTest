@@ -1,0 +1,108 @@
+.page {
+  width: 100%;
+}
+
+.contentPanel {
+  gap: var(--oi-spacing-l);
+}
+
+.titleBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--oi-spacing-m);
+}
+
+.titleBar h1,
+.titleBar p {
+  margin: 0;
+}
+
+.titleBar h1 {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-02-font-size);
+  font-weight: var(--oi-text-heading-02-font-weight);
+  line-height: var(--oi-text-heading-02-line-height);
+}
+
+.titleBar p {
+  margin-top: var(--oi-spacing-xs);
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.actions {
+  display: flex;
+  gap: var(--oi-spacing-s);
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--oi-spacing-s);
+}
+
+.metricCard {
+  gap: var(--oi-spacing-s);
+  min-width: 0;
+  padding: var(--oi-spacing-m);
+  border-radius: var(--oi-border-radius-default);
+}
+
+.metricCard span,
+.metricCard small {
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.metricCard strong {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-02-font-size);
+  font-weight: var(--oi-text-heading-02-font-weight);
+  line-height: var(--oi-text-heading-02-line-height);
+}
+
+.metricCard small {
+  color: var(--oi-content-color-tertiary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.tableSection {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.autoExtend {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .metricRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .titleBar,
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions {
+    align-items: flex-start;
+  }
+
+  .metricRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

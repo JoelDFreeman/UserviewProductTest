@@ -51,9 +51,13 @@ export interface DataTableProps<TRow extends DataTableRow> {
   selected?: Set<RowKey>;
   onSelectionChange?: (next: Set<RowKey>) => void;
   onRowAction?: (row: TRow) => void;
+  /** Optional handler for selecting a whole row. */
+  onRowClick?: (row: TRow) => void;
   /** Render a custom control (e.g. a menu trigger) in each row's trailing
    *  action cell. Takes precedence over the default `onRowAction` button. */
   rowActions?: (row: TRow, i: number) => ReactNode;
+  /** Omit the trailing action column when the design has no row actions. */
+  showRowActions?: boolean;
   /** Rendered inside the table body when `rows` is empty. */
   emptyState?: DataTableEmptyState;
   className?: string;
@@ -78,7 +82,9 @@ export function DataTable<TRow extends DataTableRow>({
   selected,
   onSelectionChange,
   onRowAction,
+  onRowClick,
   rowActions,
+  showRowActions = true,
   emptyState,
   className,
 }: DataTableProps<TRow>) {
@@ -170,7 +176,9 @@ export function DataTable<TRow extends DataTableRow>({
             <span className={styles.headLabel}>{col.header}</span>
           </HeadCell>
         ))}
-        <HeadCell width="44px" className={styles.actionCell} pin="end" aria-label="Row actions" />
+        {showRowActions && (
+          <HeadCell width="44px" className={styles.actionCell} pin="end" aria-label="Row actions" />
+        )}
       </div>
 
       <div className={styles.body} role="rowgroup">
@@ -203,6 +211,7 @@ export function DataTable<TRow extends DataTableRow>({
               role="row"
               aria-selected={isSelected || undefined}
               className={cx(styles.row, isSelected && styles.rowSelected)}
+              onClick={() => onRowClick?.(row)}
             >
               {selectable && (
                 <BodyCell width="40px" className={styles.checkboxCell} pin="startInner">
@@ -223,18 +232,20 @@ export function DataTable<TRow extends DataTableRow>({
                   {col.cell(row, i)}
                 </BodyCell>
               ))}
-              <BodyCell width="44px" className={styles.actionCell} pin="end">
-                {rowActions ? (
-                  rowActions(row, i)
-                ) : (
-                  <IconButton
-                    icon="DotsThree"
-                    ariaLabel={`Actions for ${label}`}
-                    size="s"
-                    onClick={() => onRowAction?.(row)}
-                  />
-                )}
-              </BodyCell>
+              {showRowActions && (
+                <BodyCell width="44px" className={styles.actionCell} pin="end">
+                  {rowActions ? (
+                    rowActions(row, i)
+                  ) : (
+                    <IconButton
+                      icon="DotsThree"
+                      ariaLabel={`Actions for ${label}`}
+                      size="s"
+                      onClick={() => onRowAction?.(row)}
+                    />
+                  )}
+                </BodyCell>
+              )}
             </div>
           );
         })}

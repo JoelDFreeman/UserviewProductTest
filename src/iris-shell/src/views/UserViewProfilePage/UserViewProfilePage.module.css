@@ -1,0 +1,149 @@
+.mainSurface {
+  background-color: var(--oi-background-color-secondary);
+  border: 0;
+  border-radius: 0;
+}
+
+.page {
+  width: 100%;
+}
+
+.contentPanel {
+  gap: var(--oi-spacing-l);
+}
+
+.profileScroll {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--oi-spacing-l);
+  min-height: 0;
+  overflow-x: clip;
+  overflow-y: auto;
+  padding: 0 1px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--oi-spacing-l);
+}
+
+.avatarWrapper {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.avatarEdit {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-xs);
+  min-width: 0;
+}
+
+.userMeta h1,
+.userMeta p,
+.profileSection h2,
+.accountGrid h3 {
+  margin: 0;
+}
+
+.userMeta h1 {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-02-font-size);
+  font-weight: var(--oi-text-heading-02-font-weight);
+  line-height: var(--oi-text-heading-02-line-height);
+}
+
+.userMeta p {
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--oi-border-color-muted);
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-m);
+}
+
+.profileSection h2 {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-heading-03-font-size);
+  font-weight: var(--oi-text-heading-03-font-weight);
+  line-height: var(--oi-text-heading-03-line-height);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oi-spacing-m) var(--oi-spacing-l);
+}
+
+.formGrid > :nth-child(5) {
+  max-width: 380px;
+}
+
+.accountGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  gap: var(--oi-spacing-l);
+}
+
+.accountGrid > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-s);
+  min-width: 0;
+}
+
+.accountGrid h3 {
+  color: var(--oi-content-color-secondary);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.readOnlyValue {
+  min-height: 32px;
+  padding: var(--oi-spacing-xs) var(--oi-spacing-s);
+  color: var(--oi-content-color-primary);
+  background: var(--oi-background-color-secondary);
+  border-radius: var(--oi-border-radius-default);
+  font-size: var(--oi-text-body-small-font-size);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--oi-spacing-m);
+}
+
+.ghostButton {
+  background: transparent;
+  border-color: transparent;
+}
+
+@media (max-width: 760px) {
+  .formGrid,
+  .accountGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formGrid > :nth-child(5) {
+    max-width: none;
+  }
+}

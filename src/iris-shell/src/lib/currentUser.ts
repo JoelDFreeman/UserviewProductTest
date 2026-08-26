@@ -5,7 +5,6 @@ import type { HeaderUser } from '../components/AppHeader/AppHeader.js';
  * also the default value of `AppShellProps.user`.
  */
 export const CURRENT_USER: HeaderUser = {
-  name: 'Sara Ito',
-  src: '/avatar02.png',
-  email: 'sara.ito@example.com',
+  name: 'John Doe',
+  email: 'john.doe@company.com',
 };

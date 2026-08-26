@@ -1,0 +1,94 @@
+.sheet {
+  width: 512px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 1px;
+}
+
+.ownerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oi-spacing-s);
+}
+
+.ownerSection h3 {
+  margin: 0;
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.ownerCard {
+  display: flex;
+  align-items: center;
+  gap: var(--oi-spacing-s);
+  min-height: 100px;
+  padding: var(--oi-spacing-s);
+  overflow: hidden;
+  background: var(--oi-background-color-secondary);
+  border-radius: var(--oi-border-radius-m);
+}
+
+.ownerInfo {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ownerInfo strong,
+.ownerInfo span,
+.ownerRole,
+.counter {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ownerInfo strong {
+  color: var(--oi-content-color-primary);
+  font-size: var(--oi-text-body-small-font-size);
+  font-weight: var(--oi-text-body-small-font-weight);
+  line-height: var(--oi-text-body-small-line-height);
+}
+
+.ownerInfo span,
+.ownerRole,
+.counter {
+  color: var(--oi-content-color-tertiary);
+  font-size: var(--oi-text-caption-font-size);
+  line-height: var(--oi-text-caption-line-height);
+}
+
+.ownerRole {
+  flex: 0 0 auto;
+}
+
+.reasonField {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  right: var(--oi-spacing-s);
+  bottom: var(--oi-spacing-xs);
+}
+
+.footerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--oi-spacing-s);
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .sheet {
+    width: 100%;
+  }
+}
